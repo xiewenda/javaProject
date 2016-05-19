@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xwd.mapper" >
+  <resultMap id="user" type="com.xwd.model.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="passWord" property="passWord" jdbcType="VARCHAR" />
+    <result column="Email" property="Email" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  	<insert id="insert" parameterType="user">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+	     SELECT LAST_INSERT_ID()
+	    </selectKey>
+	  insert into user values(#{id},#{userName},#{passWord},#{Email})
+	</insert>
+	
+	<select id="selectById" parameterType="int" resultType="user">
+		select * from user where id = #{id}
+	</select>
+	<select id="selectList" resultType="user">
+	    select * from user
+	</select>
+	<select id="selectMap" resultType="map">
+	    select * from user
+	</select>
+	
+    
+	<update id="update" parameterType="user">
+	  update user set name=#{name},gender=#{gender},age=#{age}
+	  where id=#{id}
+	</update>
+	<select id="selectCondtion" parameterType="map" resultType="user">
+		select * from user
+	<where>
+	<if test="name !=null">
+	and name=#{name}
+	</if>
+	<if test="gender !=null">
+	and gender=#{gender}
+	</if> 
+	</where>
+	</select>
+	
+	<update id="updateCondition" parameterType="map" >
+	update user 
+	<set>
+	<if test="name !=null">
+	name = #{name},
+	</if>
+	<if test="age !=null">
+	age = #{age},
+	</if>
+	<if test="gender !=null">
+	gender = #{gender}
+	</if>
+	where id=#{id}
+	</set>
+	</update>
+
+    <select id="selectForeach" resultType="user">
+    	select * from tbl_user where id in    
+     <foreach collection="ids" open="(" close=")" item="id" separator=",">
+     	 #{id}
+    </foreach>
+    
+    </select>
+	
+	<insert id="insertBatch" parameterType="user" >
+	<selectKey keyProperty="id" order="AFTER" resultType="int">
+	select last_insert_id()
+	</selectKey>
+	insert into tbl_user values
+	<foreach collection="userList" item="user" separator=",">
+	(#{user.id},#{user.name},#{user.gender},#{user.age})
+	</foreach>
+	</insert>
+	
+	 <delete id="deleteByPrimaryKey" parameterType="Long" >
+    delete from user
+    where id = #{id}
+  </delete>
+	<delete id="deleteBatch" parameterType="map" >
+	delete from tbl_user where id in
+	<foreach collection="ids" open="(" close=")" item="id" separator=",">
+	#{id}
+	</foreach>
+	</delete>
+	
+</mapper>

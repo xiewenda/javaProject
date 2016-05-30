@@ -9,7 +9,6 @@
   </parent>
   <groupId>com.xwd</groupId>
   <artifactId>ssm</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>ssh Maven Webapp</name>
   <url>http://maven.apache.org</url>

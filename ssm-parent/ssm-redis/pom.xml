@@ -8,19 +8,19 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>com.xwd</groupId>
-  <artifactId>ssm</artifactId>
-  <packaging>war</packaging>
-  <name>ssh Maven Webapp</name>
+  <artifactId>ssm-redis</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>ssm-redis</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <build>
-    <finalName>ssm</finalName>
-  </build>
 </project>

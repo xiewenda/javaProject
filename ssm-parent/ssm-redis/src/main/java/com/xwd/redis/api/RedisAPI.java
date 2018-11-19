@@ -1,6 +1,6 @@
 package com.xwd.redis.api;
-import org.junit.Test;
 
+import org.junit.jupiter.api.Test;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.SortingParams;

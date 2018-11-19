@@ -226,7 +226,7 @@
 					<exists>${env.JAVA_HOME}/lib/jconsole.jar</exists>
 				</file>
 			</activation>
-			<properties>
+			<!--<properties>
 				<toolsjar>${env.JAVA_HOME}/lib/tools.jar</toolsjar>
 				<jconsolejar>${env.JAVA_HOME}/lib/jconsole.jar</jconsolejar>
 			</properties>
@@ -234,18 +234,18 @@
 				<dependency>
 					<groupId>com.alibaba</groupId>
 					<artifactId>jconsole</artifactId>
-					<version>1.6.0</version>
+					<version>1.8.0</version>
 					<scope>system</scope>
 					<systemPath>${jconsolejar}</systemPath>
 				</dependency>
 				<dependency>
 					<groupId>com.alibaba</groupId>
 					<artifactId>tools</artifactId>
-					<version>1.6.0</version>
+					<version>1.8.0</version>
 					<scope>system</scope>
 					<systemPath>${toolsjar}</systemPath>
 				</dependency>
-			</dependencies>
+			</dependencies>-->
 		</profile>
 		<profile>
 			<id>mac-profile</id>
@@ -255,15 +255,15 @@
 					<exists>${java.home}/../Classes/jconsole.jar</exists>
 				</file>
 			</activation>
-			<dependencies>
+			<!--<dependencies>
 				<dependency>
 					<groupId>com.alibaba</groupId>
 					<artifactId>jconsole</artifactId>
-					<version>1.6.0</version>
+					<version>1.8.0</version>
 					<scope>system</scope>
 					<systemPath>${java.home}/../Classes/jconsole.jar</systemPath>
 				</dependency>
-			</dependencies>
+			</dependencies>-->
 		</profile>
 		<profile>
 			<id>mac-profile-oracle-jdk</id>
@@ -554,6 +554,7 @@
 			
 	<modules>
 		<module>ssm</module>
-    <module>ssm-redis</module>
-  </modules>
+        <module>ssm-redis</module>
+		<module>ssm-utils</module>
+	</modules>
 </project>
